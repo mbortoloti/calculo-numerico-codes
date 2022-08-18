@@ -24,10 +24,10 @@ df(x) = -exp(-1/x^2)*(pi*sin(pi*x/2)*x^3-4*cos(pi*x/2))/(2*x^3);
 ϕ(x) = x - f(x) / df(x);
 
 #Exact Solution
-xstar = 1.0; 
+#xstar = 1.0; 
 
 # Initial guess
-xk = 0.1;
+xk = 2.2;
 
 # Iteration counter
 k = 0;
@@ -43,13 +43,7 @@ while true
 
     nfx = abs(f(xk));
 
-    #Error calculation
-    ekm1 = ek;
-    ek = ekp1;
-    ekp1 = abs(xk - xstar);
-    α = log(ekp1/ek) / log(ek/ekm1);
-    # print info
-    @printf("%5d    %10.8e    %10.8e    %10.8e    %10.8f\n",k,xk,nfx,ek,α);
+    @printf("%5d    %10.8e    %10.8e \n",k,xk,nfx);
 
 
     if nfx < ϵ
