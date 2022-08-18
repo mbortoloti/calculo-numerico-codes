@@ -27,7 +27,7 @@ df(x) = -exp(-1/x^2)*(pi*sin(pi*x/2)*x^3-4*cos(pi*x/2))/(2*x^3);
 #xstar = 1.0; 
 
 # Initial guess
-xk = 2.2;
+xk = -0.5;
 
 # Iteration counter
 k = 0;
@@ -42,8 +42,9 @@ while true
     global xk,k,ek,ekm1,ekp1;
 
     nfx = abs(f(xk));
+    mdfx = abs(df(xk));
 
-    @printf("%5d    %10.8e    %10.8e \n",k,xk,nfx);
+    @printf("%5d    %10.8e    %10.8e   %10.8e\n",k,xk,nfx,mdfx);
 
 
     if nfx < ϵ
